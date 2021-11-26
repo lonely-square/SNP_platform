@@ -64,18 +64,15 @@ export default {
     closeDialog() {
       this.dialogreport = false;
     },
-    openPdf(){
+    async openPdf(){
       let that = this;
-      axios.post('http://'+'127.0.0.1:1234').then(
 
-      );
 
-      setTimeout(()=>{
-         //需要延迟的代码 :3秒后延迟跳转到首页，可以加提示什么的
+        await axios.get('http://'+'47.101.52.236:8095').then();
+
+
         console.log("好了");
-        this.dialogreport=true;
-         //延迟时间：3秒
-       },5000);
+        that.dialogreport=true;
 
 
     }
