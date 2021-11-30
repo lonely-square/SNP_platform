@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div style="width: 550px;min-height: 200px">
+      <div style="width: 550px;min-height: 300px">
         <el-form label-width="160px" >
           <el-form-item label="病人姓名" style="width: 300px">
             <el-input v-model="formBuild.name"
