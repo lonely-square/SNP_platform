@@ -12,18 +12,7 @@
               <template slot="title"><i class="el-icon-edit"></i>
                 <router-link :to="{name: 'updatePage'}">上传数据</router-link></template>
             </el-submenu>
-
-<!--            <el-submenu index="2">-->
-<!--              <template slot="title"><i class="el-icon-data-board"></i>-->
-<!--                <router-link :to="{name:'commentClass'}">验证数据</router-link></template>-->
-<!--            </el-submenu>-->
-
-<!--            <el-submenu index="3">-->
-<!--              <template slot="title"><i class="el-icon-guide"></i>-->
-<!--                <router-link :to="{name:'pdfReader'}">生成报告</router-link></template>-->
-<!--            </el-submenu>-->
-
-          </el-menu>
+         </el-menu>
         </el-aside>
 
         <el-main style="background-color: #e8f0f5">

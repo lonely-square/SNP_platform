@@ -10,7 +10,7 @@ var server1 = http.createServer(
 
         const execSync = require('child_process').execSync;
         // 同步执行
-        const output = execSync('python3 python_web.py')
+        const output = execSync('python3 /usr/local/nginx/html/report/static/python_web3.py')
         console.log('sync: ' + output.toString())
         console.log('over')
         res.setHeader('Access-Control-Allow-Origin', '*')
@@ -30,23 +30,28 @@ server1.listen( 8095,function()
 const server2 = http.createServer();
 
 server2.on('request', function (req, res) {
+  console.log('new message2')
   res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log(req.url)
   const url = req.url;
   if (url === '/') {
+  	console.log('new message3')
     res.end();
-  } else if (url === '/uploadfile') {
-
+    
+  } else if (url === '/uploadFile') {
+console.log('new message4')
     var form = new formidable.IncomingForm()
     
     form.keepExtensions = true
 
     form.on('file', (name, file) => {
-      fs.renameSync(file.filepath, '/usr/local/nginx/html/report/static/' + file.originalFilename)
+      fs.renameSync(file.filepath, '/usr/local/nginx/html/report/static/demo.xlsx')
       console.log(name)
       console.log(file)
     })
 
     form.on('end', () => {
+    	 res.write("OK!!!!")
       res.end()
     })
 

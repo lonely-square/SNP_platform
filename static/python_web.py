@@ -1,14 +1,3 @@
-
- 
-'''
-Implement floating image based on python-docx.
-- Text wrapping style: BEHIND TEXT <wp:anchor behindDoc="1">
-- Picture position: top-left corner of PAGE `<wp:positionH relativeFrom="page">`.
-Create a docx sample (Layout | Positions | More Layout Options) and explore the 
-source xml (Open as a zip | word | document.xml) to implement other text wrapping
-styles and position modes per `CT_Anchor._anchor_xml()`.
-'''
- 
 from docx.oxml import parse_xml, register_element_cls
 from docx.oxml.ns import nsdecls
 from docx.oxml.shape import CT_Picture

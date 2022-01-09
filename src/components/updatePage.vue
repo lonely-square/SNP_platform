@@ -8,29 +8,18 @@
                       maxlength="10"
                       show-word-limit></el-input>
           </el-form-item>
-
-          <!-- <el-form-item>
-            <span slot="label" class="emphasize">病理参数：</span>
-            <el-input
-              type="textarea"
-              :rows="4"
-              placeholder="请输入内容"
-              v-model="formBuild.intro">
-            </el-input>
-          </el-form-item> -->
-          
           <el-form-item label="上传数据" style="width: 300px">
-            
+
             <div style="align-items: center">
               <el-col>
                 <el-row>
                   <el-upload
                       class="upload-demo"
-                     
-                      accept=".xlsx"  
+
+                      accept=".xlsx,.vcf"
                       :on-change="fileChange"
-                      :auto-upload="false"	                  
-	                    action=""             
+                      :auto-upload="false"
+	                    action=""
                       multiple
                       :limit="1"
                       :on-exceed="handleExceed"
@@ -97,7 +86,7 @@ export default {
     async openPdf(){
       let that = this;
 
-        await axios.get('http://'+'47.101.52.236:8095').then();
+      await axios.get('http://'+'47.101.52.236:8095').then();
 
         console.log("好了");
         that.dialogreport=true;
@@ -111,14 +100,14 @@ export default {
           this.$message.warning('请上传文件');
         } else {
 
-           
+
             const formdata = new FormData();
             const file = this.fileList[0];
             formdata.append("file", file);
             formdata.append("fileName", file.name)
             axios({
               method: 'post',
-              url: 'http://47.101.52.236:8096/uploadfile',
+              url: 'http://47.101.52.236:60114/uploadfile',
               data: formdata,
               withCredentials: false,
             }).then((res) => {
@@ -128,9 +117,9 @@ export default {
                 console.log(error)
               })
 
-          
+
         }
-      
+
     }
   },
 }
